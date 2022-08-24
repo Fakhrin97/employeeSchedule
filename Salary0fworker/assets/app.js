@@ -77,7 +77,16 @@ sortAz.addEventListener('click',function(){
         // names must be equal
         return 0;
       });
-      workerTable.innerHTML=''
+      workerTable.innerHTML=`
+  
+      <tr>
+           <th>Id</th>
+            <th>Name</th>
+           <th>Suranme</th>
+           <th>Salary</th>
+       </tr>
+   
+   `
       workers.forEach((worker) => {
         let list = "";
         list = `
@@ -142,7 +151,16 @@ sortZa.addEventListener('click',function(){
         // names must be equal
         return 0;
       });
-      workerTable.innerHTML=''
+      workerTable.innerHTML=`
+  
+      <tr>
+           <th>Id</th>
+            <th>Name</th>
+           <th>Suranme</th>
+           <th>Salary</th>
+       </tr>
+   
+   `
       workers.reverse().forEach((worker) => {
         let list = "";
         list = `
@@ -198,24 +216,88 @@ filterForm.addEventListener("submit", function (ev) {
   let minSalary = document.querySelector("#min-salary").value;
   let maxSalary = document.querySelector("#max-salary").value;
 
-  let sortedArry = workers.filter((w) => {
-    console.log(w.salary);
-    return w.salary >= minSalary && w.salary <= maxSalary;
+  let sortedArry = workers.filter(w => {
+    //Typesin Number Etmek Ucun
+    +w.salary
+    return (+w.salary >minSalary && +w.salary < maxSalary);
   });
-  console.log(sortedArry);
+  workerTable.innerHTML=`
+  
+     <tr>
+          <th>Id</th>
+           <th>Name</th>
+          <th>Suranme</th>
+          <th>Salary</th>
+      </tr>
+  
+  `
+  sortedArry.forEach((worker) => {
+    let list = "";
+    list = `
+            <tr>
+                 <td>
+                    ${worker.id} 
+                 </td>
+                 <td>
+                    <input
+                       type="text"
+                       value="${worker.name}"
+                       disabled
+                       onchange="updateName(event.target, ${worker.id})">
+                  </td>
+                  <td>
+                     <input 
+                       type="text"
+                       value="${worker.surname}"
+                       disabled
+                       onchange="updateSurname(event.target, ${worker.id})"> 
+                  </td>
+                  <td>
+                     <input
+                       style="width: 60px;"
+                       type="number"
+                       value="${worker.salary}"
+                       disabled 
+                       onchange="updateSalary(event.target, ${worker.id})" >
+                       AZN
+                  </td>
+                  
+                  <td>
+                     <button
+                       onclick="editEl(event.target ,${worker.id})">
+                       Edit
+                     </button>
+                  </td>
+                  <td>
+                     <button
+                     onclick="removeEl(event.target ,${worker.id})">
+                     <i class="fa-solid fa-trash-can"></i>
+                     </button>
+                  </td>
+            </tr>
+      `;
+    workerTable.innerHTML += list;
+  });
 });
 
-let workerId = 0;
+
+let workerId ;
+if(workers.length===0){
+  workerId=0;
+}else{
+  workerId= ++workers[workers.length-1].id
+}
 salaryForm.addEventListener("submit", function (ev) {
   ev.preventDefault();
   let workerName = document.querySelector("#name").value;
   let workerSurname = document.querySelector("#surname").value;
   let workerSalary = document.querySelector("#salary").value;
 
-  workerId++;
+  
 
   workers.push({
-    id: workerId,
+    
+    id: ++workerId,
     name: workerName,
     surname: workerSurname,
     salary: workerSalary,
@@ -317,3 +399,4 @@ workers.forEach((worker) => {
     `;
   workerTable.innerHTML += list;
 });
+
