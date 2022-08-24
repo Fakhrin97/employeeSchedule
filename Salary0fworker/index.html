@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assets/style.css">
+
+
+
+</head>
+
+<body>
+
+    <form id="salary-form">
+        <label for="name">Name</label>
+        <input id="name" type="text">
+        <label for="surname">Surname</label>
+        <input id="surname" type="text">
+        <label for="salary">Salary</label>
+        <input id="salary" min="1" type="number">
+        <button id="add-worker-btn">Add</button>
+    </form>
+    <section id="list">
+        <form id="filter">
+            <label for="min-salary">Min</label>
+            <input id="min-salary" type="number">
+            <br>
+            <label for="max-salary">Max</label>
+            <input id="max-salary" type="number">
+            <button>Filter</button>
+        </form>
+        Filter By Name
+        <button id="sortA-Z">Filter A-Z</button>
+        <button id="sortZ-A">Filter Z-A</button>
+        <table id="worker-table">
+            
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Suranme</th>
+                <th>Salary</th>
+            </tr>
+
+
+
+        </table>
+    </section>
+
+    <script src="./assets/app.js"></script>
+</body>
+
+</html>

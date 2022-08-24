@@ -1,0 +1,52 @@
+#salary-form {
+  width: 20%;
+  margin: 5rem auto;
+  border: 3px #7575d2 dashed;
+  padding: 5rem 3rem;
+}
+#salary-form input, #salary-form button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  outline: none;
+  font-size: 15px;
+}
+#salary-form button {
+  background-color: #7575d2;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  padding: 7px 0;
+  margin-top: 20px;
+}
+
+#list {
+  width: 20%;
+  margin: 3rem auto;
+}
+#list table button {
+  border: none;
+  cursor: pointer;
+}
+#list table tr th {
+  border: 1px solid black;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 100;
+  padding-right: 6rem;
+}
+#list table tr td {
+  padding: 5px 0;
+  text-align: center;
+}
+#list table tr td input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  text-align: center;
+}
+
+.active {
+  display: none;
+}/*# sourceMappingURL=style.css.map */
